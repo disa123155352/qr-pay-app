@@ -6,7 +6,7 @@ const Profile = () => {
   const [profile, setProfile] = useState({});
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/profile')
+    axios.get('https://qr-pay-backend.onrender.com/api/profile')
       .then(res => setProfile(res.data))
       .catch(err => console.error('Ошибка загрузки профиля', err));
   }, []);
