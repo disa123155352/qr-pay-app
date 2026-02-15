@@ -12,12 +12,13 @@ const History = () => {
   }, []);
 
   const getStatusText = (status) => {
-      case 'success': return 'Успешно';
-      case 'pending': return 'В обработке';
-      case 'failed': return 'Ошибка';
-      default: return status;
-    }
-  };
+  switch (status) {
+    case 'success': return 'Успешно';
+    case 'pending': return 'В обработке';
+    case 'failed': return 'Ошибка';
+    default: return status;
+  }
+}
 
   return (
     <div className="history-container">
