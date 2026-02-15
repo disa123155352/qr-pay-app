@@ -6,13 +6,12 @@ const History = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/transactions')
+    axios.get('https://qr-pay-backend-rwmw.onrender.com/api/transactions')
       .then(res => setTransactions(res.data))
       .catch(err => console.error('Ошибка загрузки истории', err));
   }, []);
 
   const getStatusText = (status) => {
-    switch(status) {
       case 'success': return 'Успешно';
       case 'pending': return 'В обработке';
       case 'failed': return 'Ошибка';
