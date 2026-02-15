@@ -6,7 +6,7 @@ const Home = () => {
   const [balance, setBalance] = useState({ USDT: 0, TON: 0, BTC: 0 });
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/balance')
+    axios.get('https://qr-pay-backend-rwmw.onrender.com/api/balance')
       .then(res => setBalance(res.data))
       .catch(err => console.error('Ошибка загрузки баланса', err));
   }, []);
