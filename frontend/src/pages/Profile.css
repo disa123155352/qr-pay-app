@@ -1,0 +1,27 @@
+.profile-container {
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+.profile-container h2 {
+  margin-bottom: 30px;
+}
+
+.profile-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.profile-links {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-links a {
+  color: #2ecc71;
+  text-decoration: none;
+}

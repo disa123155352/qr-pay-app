@@ -1,0 +1,65 @@
+.history-container {
+  padding: 20px;
+  padding-bottom: 80px;
+}
+
+.history-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.transaction-list {
+  list-style: none;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.tx-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.tx-shop {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.tx-date {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.tx-right {
+  text-align: right;
+}
+
+.tx-amount {
+  font-weight: 600;
+}
+
+.tx-usdt {
+  font-size: 12px;
+  color: #7f8c8d;
+}
+
+.tx-status {
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.tx-status.success {
+  color: #2ecc71;
+}
+.tx-status.pending {
+  color: #f39c12;
+}
+.tx-status.failed {
+  color: #e74c3c;
+}

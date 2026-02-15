@@ -1,0 +1,8 @@
+.app {
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.content {
+  padding-bottom: 70px; /* чтобы контент не заходил под навигацию */
+}
