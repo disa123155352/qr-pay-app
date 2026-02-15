@@ -2,14 +2,20 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5001;
+const PORT = process.env.PORT || 5001; // Render сам назначит порт, либо 5001 для локальной разработки
 
-// Разрешаем кросс-доменные запросы (для связи с фронтендом)
-app.use(cors());
+// Разрешаем CORS для вашего фронтенда на Vercel
+// Если хотите разрешить все домены (например, для теста), замените на app.use(cors())
+const corsOptions = {
+  origin: 'https://qr-pay-app.vercel.app', // Точный адрес вашего фронтенда
+  optionsSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
 // Чтобы сервер понимал JSON в теле запроса
 app.use(express.json());
 
-// Временные данные (потом заменим на базу данных)
+// Временные данные (имитация базы данных)
 let userBalance = {
   USDT: 1250.45,
   TON: 15.2,
@@ -29,25 +35,28 @@ let userProfile = {
   privacy: 'https://example.com/privacy'
 };
 
-// Маршруты API
+// ----- Маршруты API -----
+
+// Получение баланса
 app.get('/api/balance', (req, res) => {
   res.json(userBalance);
 });
 
+// Получение истории транзакций
 app.get('/api/transactions', (req, res) => {
   res.json(transactions);
 });
 
+// Получение профиля
 app.get('/api/profile', (req, res) => {
   res.json(userProfile);
 });
 
-// Запуск сервера
-// Маршрут для обработки QR-кода
+// Обработка сканированного QR-кода (имитация)
 app.post('/api/scan', (req, res) => {
   const { qr } = req.body;
-  // Здесь должна быть логика поиска заказа по QR-данным
-  // Пока возвращаем фиктивные данные
+  console.log('Получен QR:', qr); // для отладки
+  // Здесь должна быть логика поиска заказа по QR
   res.json({
     shop: 'Кофе Хауз',
     amountRub: 350,
@@ -57,13 +66,15 @@ app.post('/api/scan', (req, res) => {
   });
 });
 
-// Маршрут для подтверждения оплаты
+// Подтверждение оплаты (имитация)
 app.post('/api/pay', (req, res) => {
-  const { paymentId } = req.body; // например
-  // Имитация успешной оплаты
+  const { paymentId } = req.body;
+  console.log('Оплата по paymentId:', paymentId);
+  // Здесь списание средств, запись в БД и т.д.
   res.json({ success: true });
 });
 
+// Запуск сервера
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
